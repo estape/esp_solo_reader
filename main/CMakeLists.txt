@@ -1,2 +1,1 @@
-idf_component_register(SRCS "main.cpp"
-                    INCLUDE_DIRS ".")
+idf_component_register(SRCS "main.cpp" "controller/SensorReader.cpp" "model/SensorDriver.cpp" "view/ConsoleScreen.cpp" INCLUDE_DIRS "." "controller" "model" "view")
