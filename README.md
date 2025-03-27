@@ -62,7 +62,7 @@ O objetivo principal é criar uma solução eficiente para monitorar a umidade d
 ## Autor
 
 - **Rodrigo Estape de Oliveira**  
-  - Estudante de Engenharia de Software.  
+  - Estudante de Analise e Desenvolvimento de Sistema - Centro Universitário Bras Cubas.
   - LinkedIn: [Rodrigo Estape](https://www.linkedin.com/in/rodrigo-estape/)
 
 ## Licença
