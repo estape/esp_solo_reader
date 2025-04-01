@@ -30,6 +30,20 @@ void ChangeColor()
     printf("\033[44;97m"); // ANSI escape code para mudar a cor de fundo do console.
 }
 
+/**
+ * @brief Exibe informações sobre o nível de umidade do solo com base na leitura de um sensor.
+ *
+ * Esta função utiliza um driver de sensor para obter o nível de umidade do solo e exibe
+ * recomendações baseadas no valor detectado. Os níveis de umidade são categorizados como:
+ * 0 (seco), 1 (úmido) e 2 (encharcado). Caso ocorra um erro na leitura, uma mensagem de erro
+ * será exibida.
+ *
+ * @param moistureLevel Valor bruto de entrada representando o nível de umidade do solo.
+ *
+ * @note A função também ajusta o nível de log do ESP para "WARN" para a tag "gpio".
+ *       Certifique-se de que o driver do sensor está configurado corretamente para
+ *       leituras precisas.
+ */
 void ConsoleScreen::MoistureSensorView(int moistureLevel)
 {
     SensorDriver refSensorDriver;
