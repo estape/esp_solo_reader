@@ -33,7 +33,7 @@ O objetivo principal é criar uma solução eficiente para monitorar a umidade d
 ## Estrutura do Projeto
 
 - **Hardware**:  
-  - ESP32 e sensores de umidade do solo.
+  - ESP32.
   - Sensores de umidade do solo
 - **Software**:  
   - Código embarcado para o ESP32.
