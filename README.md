@@ -27,17 +27,17 @@ O objetivo principal é criar uma solução eficiente para monitorar a umidade d
 
 - **ESP32**: Microcontrolador responsável pela coleta e transmissão dos dados.
 - **Sensores de Umidade do Solo**: Dispositivos para medir a umidade do solo.
-- **Python**: Linguagem para desenvolvimento do pipeline de dados e integração com IA.
+- **C/C++**: Linguagem para desenvolvimento do pipeline de dados e integração com IA.
 - **Machine Learning**: Algoritmos para análise preditiva e geração de insights.
-- **Wi-Fi**: Comunicação sem fio para envio de dados.
 
 ## Estrutura do Projeto
 
 - **Hardware**:  
   - ESP32 e sensores de umidade do solo.
+  - Sensores de umidade do solo
 - **Software**:  
   - Código embarcado para o ESP32.
-  - Pipeline de dados desenvolvido em Python.
+  - Pipeline de dados desenvolvido em C/C++.
   - Modelos de IA para análise preditiva.
 
 ## Como Executar
@@ -45,12 +45,12 @@ O objetivo principal é criar uma solução eficiente para monitorar a umidade d
 1. **Configuração do Hardware**  
    - Conecte os sensores de umidade ao ESP32 conforme o esquema elétrico do projeto.
 
-2. **Configuração do Software**  
-   - Faça o upload do código para o ESP32 utilizando a IDE Arduino ou PlatformIO.
-   - Configure o pipeline de dados no servidor ou máquina local.
+2. **Configuração do Software**
+   - Instale a extensão **ESP-IDF** no VS Code seguindo o [guia oficial](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html).
+   - Faça o build e o upload do código embarcado no ESP32 via VS Code.
 
 3. **Execução**  
-   - Ligue o ESP32 e inicie o pipeline de dados.
+   - Ligue o ESP32 e inicie o Monitor ou pelo terminal via VS Code `idf.py monitor.
    - Acompanhe os dados coletados e analisados pela interface de monitoramento.
 
 ## Aplicações
