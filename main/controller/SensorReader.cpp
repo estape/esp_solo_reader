@@ -1,7 +1,6 @@
 #include "SensorDriver.h"
 #include <iostream>
 #include "regex.h"
-#include "esp_log.h"
 #include "string.h"
 #include "driver/gpio.h"
 #include "freertos/FreeRTOS.h"

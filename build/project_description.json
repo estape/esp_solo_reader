@@ -1195,7 +1195,7 @@
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "file": "D:/Users/Rodrigo/Documents/Dev/vscode/esp32/solo_reader/build/esp-idf/main/libmain.a",
-            "sources": [ "D:/Users/Rodrigo/Documents/Dev/vscode/esp32/solo_reader/main/main.cpp", "D:/Users/Rodrigo/Documents/Dev/vscode/esp32/solo_reader/main/controller/SensorReader.cpp", "D:/Users/Rodrigo/Documents/Dev/vscode/esp32/solo_reader/main/model/SensorDriver.cpp", "D:/Users/Rodrigo/Documents/Dev/vscode/esp32/solo_reader/main/view/ConsoleScreen.cpp" ],
+            "sources": [ "D:/Users/Rodrigo/Documents/Dev/vscode/esp32/solo_reader/main/main.cpp", "D:/Users/Rodrigo/Documents/Dev/vscode/esp32/solo_reader/main/controller/SensorReader.cpp", "D:/Users/Rodrigo/Documents/Dev/vscode/esp32/solo_reader/main/controller/AI_Model.cpp", "D:/Users/Rodrigo/Documents/Dev/vscode/esp32/solo_reader/main/model/SensorDriver.cpp", "D:/Users/Rodrigo/Documents/Dev/vscode/esp32/solo_reader/main/view/ConsoleScreen.cpp" ],
             "include_dirs": [ ".", "controller", "model", "view" ]
         },
         "mbedtls": {

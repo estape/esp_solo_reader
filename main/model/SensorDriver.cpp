@@ -64,17 +64,16 @@ bool SensorDriver::CheckRegex(std::string moistureValue)
 }
 
 /**
- * @brief Determina o nível de umidade do solo com base no valor lido do sensor.
+ * @brief Determina o nível de umidade do solo com base no valor lido do sensor,
+ * caso o valor esteja fora do intervalo esperado, será registrado um erro no log.
+ * @param moistureValue Valor de umidade lido pelo sensor (intervalo esperado: 1023 (super seco) a 0 (encharcado)).
  * 
- * @param moistureValue Valor de umidade lido pelo sensor (intervalo esperado: 0 a 1023).
- * @return int Nível de umidade do solo:
- *         - 3: Encharcado (valores entre 0 e 255)
- *         - 2: Úmido (valores entre 256 e 511)
- *         - 1: Seco (valores entre 512 e 767)
- *         - 0: Super seco (valores entre 768 e 1023)
- *         - -1: Erro (valor fora do intervalo esperado)
- * 
- * @note Caso o valor esteja fora do intervalo esperado, será registrado um erro no log.
+ * @return Nível de umidade do solo em inteiro.
+ * @note 3 = Encharcado (valores entre 0 e 255)
+ * @note 2 = Úmido (valores entre 256 e 511)
+ * @note 1 = Seco (valores entre 512 e 767)
+ * @note 0 = Super seco (valores entre 768 e 1023)
+ * @note -1 = Erro (valor fora do intervalo esperado)
  */
 int SensorDriver::GetMoistureLevel(int moistureValue)
 {

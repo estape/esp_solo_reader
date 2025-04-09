@@ -3,6 +3,7 @@
 #include "ConsoleScreen.h"
 #include "freertos/FreeRTOS.h"
 #include "esp_log.h"
+#include "AI_Model.h"
 
 /**
  * @brief Limpa o console e reposiciona o cursor no início.
@@ -27,7 +28,7 @@ void ClearConsole()
  */
 void ChangeColor()
 {
-    printf("\033[44;97m"); // ANSI escape code para mudar a cor de fundo do console.
+    printf("\033[40;32m"); // ANSI escape code para mudar a cor de fundo do console.
 }
 
 /**
@@ -47,7 +48,18 @@ void ChangeColor()
 void ConsoleScreen::MoistureSensorView(int moistureLevel)
 {
     SensorDriver refSensorDriver;
-    int soilMoistureLvl = -2;
+    AI_Model refAIModel;
+
+    /**
+     * @brief Variável para armazenar o nível de umidade do solo.
+     * @note 0 Seco
+     * @note 1 Úmido
+     * @note 2 Úmido
+     * @note 3 Encharcado
+     */
+    int soilMoistureLvl = -1;
+    std::string IADecision = "";
+    std::string soilMoistureReturn = "";
 
     esp_log_level_set("gpio", ESP_LOG_WARN);
 
@@ -58,24 +70,32 @@ void ConsoleScreen::MoistureSensorView(int moistureLevel)
     std::cout << "|     SENSOR DE UMIDADE     |\n";
     std::cout << "=============================\n\n";
 
-    soilMoistureLvl = refSensorDriver.GetMoistureLevel(moistureLevel);
-
-    printf("Nível de umidade detectado pelo sensor: %d (0 = seco, 1 = úmido, 2 = encharcado)\n\n", soilMoistureLvl);
     printf("Aplicação: Monitoramento de umidade do solo para agricultura.\n\n");
+
+    soilMoistureLvl = refSensorDriver.GetMoistureLevel(moistureLevel);
+    refAIModel.addData(soilMoistureLvl, 0); // Adiciona dados de umidade e temperatura (0 como placeholder)
+    IADecision = refAIModel.makeDecision(); // Faz uma decisão com base nos dados adicionados
 
     switch (soilMoistureLvl)
     {
-    case 0:
-        printf("Resultado:\nSolo seco. Recomendação: Regue o solo imediatamente para evitar danos às plantas e garantir o crescimento saudável.\n");
-        break;
-    case 1:
-        printf("Resultado:\nSolo úmido. Recomendação: O solo está em boas condições para o cultivo, não é necessário regar agora.\n");
-        break;
-    case 2:
-        printf("Resultado:\nSolo encharcado. Recomendação: Evite regar o solo para prevenir o apodrecimento das raízes e possíveis perdas na colheita.\n");
-        break;
-    default:
-        printf("Resultado:\nErro ao ler o sensor de umidade. Recomendação: Verifique o sensor e tente novamente para garantir leituras precisas.\n");
-        break;
+        case 0:
+            soilMoistureReturn = "Encharcado";
+            break;
+        case 1:
+            soilMoistureReturn = "Úmido";
+            break;
+        case 2:
+            soilMoistureReturn = "Seco";
+            break;
+        case 3:
+            soilMoistureReturn = "Super seco";
+            break;
+        default:
+            soilMoistureReturn = "Indefinido";
+            break;
     }
+
+    printf(IADecision.c_str());
+    printf("\n\n=============================\n");
+    std::cout << "Nível de umidade do solo: " << soilMoistureReturn << std::endl;
 }
