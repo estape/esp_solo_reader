@@ -1,0 +1,1 @@
+idf_component_register(SRCS "main.cpp" "controller/SensorReader.cpp" "controller/AI_Model.cpp" "model/SensorDriver.cpp" "view/ConsoleScreen.cpp" INCLUDE_DIRS "." "controller" "model" "view")
